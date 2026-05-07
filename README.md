@@ -1,6 +1,4 @@
 # Kunitz-BPTI-HMM
-Structure-based workflow for building and evaluating a Kunitz/BPTI profile HMM.
-# Kunitz-BPTI-HMM
 
 > Structure-based workflow for building and evaluating a profile HMM for Kunitz/BPTI domain detection.
 
