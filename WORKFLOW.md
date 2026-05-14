@@ -6,36 +6,6 @@ This document summarizes the full analysis pipeline used to construct a profile 
 
 ---
 
-## Pipeline Summary
-
-```text
-PDB structures
-      ↓
-Chain-level sequence extraction
-      ↓
-Length filtering and MMseqs2 clustering
-      ↓
-Representative chain selection
-      ↓
-Multiple structural alignment
-      ↓
-Structural QC and outlier removal
-      ↓
-Refined alignment
-      ↓
-Profile HMM construction
-      ↓
-Swiss-Prot benchmark search
-      ↓
-Threshold optimization and evaluation
-      ↓
-False positive / false negative analysis
-      ↓
-Biological interpretation
-```
-
----
-
 ## Quick Navigation
 
 ### 1. Structure-Based Dataset Preparation
