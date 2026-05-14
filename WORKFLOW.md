@@ -24,7 +24,7 @@ For this reason, sequences were extracted at the chain level instead of only at 
 
 ## 3. Length-Based Filtering
 
-Kunitz/BPTI domains are short domains, typically around 50–60 amino acids.
+Kunitz/BPTI domains are short domains, typically around 50-60 amino acids.
 
 A length-based filter was applied to remove chains that were too short or too long to represent a typical Kunitz domain.
 
@@ -86,3 +86,148 @@ The final model was saved as:
 
 ```text
 RESULTS/hmm/kunitz.hmm
+```
+
+---
+
+## 11. Swiss-Prot Benchmark Dataset
+
+Swiss-Prot proteins were used to evaluate the predictive performance of the trained HMM.
+
+Two main benchmark datasets were prepared:
+
+- **Positive set:** Swiss-Prot proteins annotated with the BPTI/Kunitz domain.
+- **Negative set:** Swiss-Prot proteins without the BPTI/Kunitz domain annotation.
+
+The positive set was used to evaluate whether the model can correctly detect known Kunitz-containing proteins, while the negative set was used to estimate the false positive rate.
+
+---
+
+## 12. Removal of Training-Like Positives
+
+To avoid evaluating the model on proteins already represented in the training structures, training-like Swiss-Prot positive sequences were identified and removed.
+
+This step makes the benchmark more independent from the structural seed set used to train the HMM.
+
+The remaining sequences were used as the independent positive benchmark.
+
+Generated files:
+
+```text
+DATA/processed/positive_kunitz_independent.fasta
+DATA/processed/positive_training_like_removed.fasta
+```
+
+---
+
+## 13. HMM Search
+
+The trained HMM was searched against the positive and negative Swiss-Prot benchmark datasets using HMMER `hmmsearch`.
+
+The search was performed using fixed database-size correction and disabled heuristic filters:
+
+```bash
+hmmsearch -Z 1000 --max --tblout output.tbl kunitz.hmm input.fasta
+```
+
+The `--tblout` output was used for downstream parsing and performance evaluation.
+
+---
+
+## 14. No-Hit Handling
+
+Some benchmark proteins did not return any HMMER hit.
+
+To ensure that all proteins were included in the final evaluation, sequences with no HMMER hit were reintroduced into the prediction table and assigned a high default E-value.
+
+This prevented no-hit proteins from being accidentally excluded from the confusion matrix and performance calculations.
+
+---
+
+## 15. Threshold Optimization
+
+Different E-value thresholds were tested to convert HMMER scores into binary predictions.
+
+The Matthews Correlation Coefficient (MCC) was used to identify thresholds that best balanced:
+
+- True positives
+- True negatives
+- False positives
+- False negatives
+
+MCC was used because it is informative for binary classification, especially when positive and negative classes are unbalanced.
+
+---
+
+## 16. Performance Evaluation
+
+The model was evaluated using a confusion matrix and standard classification metrics.
+
+The following metrics were calculated:
+
+- Accuracy
+- Sensitivity / Recall
+- Specificity
+- Precision
+- F1-score
+- Matthews Correlation Coefficient (MCC)
+
+These metrics were used to evaluate both the standard Swiss-Prot benchmark and the hard-negative benchmark.
+
+---
+
+## 17. Hard-Negative Benchmark
+
+In addition to the standard Swiss-Prot benchmark, a hard-negative benchmark was created.
+
+Hard negatives were selected among non-Kunitz proteins with Kunitz-like properties, such as:
+
+- Cysteine-rich composition
+- Domain-like sequence length
+- Absence of BPTI/Kunitz annotation
+
+This benchmark was used as an additional robustness analysis to test whether the model remains specific against proteins that are more similar to Kunitz domains than random Swiss-Prot negatives.
+
+---
+
+## 18. Cross-Validation
+
+An iterative cross-validation strategy was used to evaluate the robustness of threshold selection and model performance.
+
+The benchmark data were repeatedly split into training and test subsets. For each iteration, the optimal threshold was selected on one subset and evaluated on the other.
+
+Performance metrics were then averaged across iterations.
+
+Generated files:
+
+```text
+RESULTS/tables/iterative_cross_validation_results_hard.tsv
+RESULTS/tables/iterative_cross_validation_summary_hard.tsv
+```
+
+---
+
+## 19. False Positive and False Negative Analysis
+
+False positive and false negative predictions were inspected to better understand the limitations of the model.
+
+False negatives may correspond to:
+
+- Divergent Kunitz domains
+- Incomplete domain annotations
+- Weak HMMER matches above the selected E-value threshold
+- Proteins whose Kunitz-like regions differ from the structurally resolved domains used to train the model
+
+This step helps interpret model errors rather than only reporting global performance metrics.
+
+---
+
+## 20. Final Interpretation
+
+The final model was interpreted in relation to known structural features of Kunitz/BPTI domains.
+
+Special attention was given to conserved cysteine residues, because Kunitz/BPTI domains are stabilized by disulfide bonds formed between conserved cysteines.
+
+The HMM/logo comparison was used to visually inspect whether the generated model captured conserved sequence features of the Kunitz domain.
+
+
