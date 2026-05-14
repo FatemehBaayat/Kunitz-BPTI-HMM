@@ -6,52 +6,6 @@ This document summarizes the full analysis pipeline used to construct a profile 
 
 ---
 
-## Workflow Map
-
-| Stage | Purpose | Steps |
-|---|---|---|
-| **1. Structure-Based Dataset Preparation** | Build a clean structural seed set | [1](#1-pdb-structure-retrieval), [2](#2-chain-level-sequence-extraction), [3](#3-length-based-filtering), [4](#4-sequence-clustering), [5](#5-representative-structure-selection), [6](#6-pdb-chain-extraction) |
-| **2. Structural Alignment and HMM Construction** | Generate a refined alignment and train the HMM | [7](#7-multiple-structural-alignment), [8](#8-structural-quality-control), [9](#9-outlier-removal-and-refined-alignment), [10](#10-profile-hmm-construction) |
-| **3. Swiss-Prot Benchmarking** | Prepare benchmark datasets and run HMMER search | [11](#11-swiss-prot-benchmark-dataset), [12](#12-removal-of-training-like-positives), [13](#13-hmm-search), [14](#14-no-hit-handling) |
-| **4. Model Evaluation** | Optimize threshold and evaluate predictions | [15](#15-threshold-optimization), [16](#16-performance-evaluation), [17](#17-hard-negative-benchmark), [18](#18-cross-validation), [19](#19-false-positive-and-false-negative-analysis) |
-| **5. Biological Interpretation** | Interpret model behavior and conserved features | [20](#20-final-interpretation) |
-
----
-
-## Quick Navigation
-
-### 1. Structure-Based Dataset Preparation
-- [PDB Structure Retrieval](#1-pdb-structure-retrieval)
-- [Chain-Level Sequence Extraction](#2-chain-level-sequence-extraction)
-- [Length-Based Filtering](#3-length-based-filtering)
-- [Sequence Clustering](#4-sequence-clustering)
-- [Representative Structure Selection](#5-representative-structure-selection)
-- [PDB Chain Extraction](#6-pdb-chain-extraction)
-
-### 2. Structural Alignment and HMM Construction
-- [Multiple Structural Alignment](#7-multiple-structural-alignment)
-- [Structural Quality Control](#8-structural-quality-control)
-- [Outlier Removal and Refined Alignment](#9-outlier-removal-and-refined-alignment)
-- [Profile HMM Construction](#10-profile-hmm-construction)
-
-### 3. Swiss-Prot Benchmarking
-- [Swiss-Prot Benchmark Dataset](#11-swiss-prot-benchmark-dataset)
-- [Removal of Training-Like Positives](#12-removal-of-training-like-positives)
-- [HMM Search](#13-hmm-search)
-- [No-Hit Handling](#14-no-hit-handling)
-
-### 4. Model Evaluation
-- [Threshold Optimization](#15-threshold-optimization)
-- [Performance Evaluation](#16-performance-evaluation)
-- [Hard-Negative Benchmark](#17-hard-negative-benchmark)
-- [Cross-Validation](#18-cross-validation)
-- [False Positive and False Negative Analysis](#19-false-positive-and-false-negative-analysis)
-
-### 5. Biological Interpretation
-- [Final Interpretation](#20-final-interpretation)
-
----
-
 ## Pipeline Summary
 
 ```text
@@ -81,7 +35,8 @@ Biological interpretation
 ```
 
 ---
-# Workflow Overview
+
+## Quick Navigation
 
 ### 1. Structure-Based Dataset Preparation
 - [PDB Structure Retrieval](#1-pdb-structure-retrieval)
