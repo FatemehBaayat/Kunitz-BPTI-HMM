@@ -133,6 +133,32 @@ Kunitz-related PDB entries were collected and parsed at the chain level.
 
 Because PDB entries can contain multiple chains, chain-level extraction was used to avoid including unrelated chains from protein complexes.
 
+### PDB Query
+
+Kunitz/BPTI-related structures were retrieved from the RCSB Protein Data Bank using the Advanced Search interface.
+
+The query was built using the following criteria:
+
+- **Pfam ID:** `PF00014`  
+  This selects protein structures associated with the Kunitz/BPTI domain.
+
+- **Experimental resolution:** `≤ 3.5 Å`  
+  This keeps structures with acceptable structural quality for downstream structural alignment.
+
+- **Polymer entity sequence length:** `45–80 amino acids`  
+  This range was selected because Kunitz/BPTI domains are short domains, typically around 50–60 residues.
+
+After running the query, the results were exported using **Tabular Reports → Custom Report**.
+
+The selected fields included:
+
+- **Entry ID:** PDB identifier.
+- **Entity ID:** polymer entity identifier.
+- **Auth Asym ID:** author-provided chain identifier.
+- **Sequence:** amino acid sequence of the polymer entity.
+
+The exported report was used as the starting point for chain-level sequence extraction and filtering.
+
 ---
 
 ### 2. Length Filtering
