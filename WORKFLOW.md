@@ -1,8 +1,10 @@
 # Workflow
 
-> **Structure-based pipeline for building and evaluating a Kunitz/BPTI profile HMM**
+> **Project goal:** Build and evaluate a structure-guided profile Hidden Markov Model (HMM) for detecting BPTI/Kunitz-type protease inhibitor domains.
 
-This document summarizes the full analysis pipeline used to construct a profile Hidden Markov Model (HMM) for the BPTI/Kunitz domain and evaluate its ability to detect Kunitz-containing proteins in Swiss-Prot.
+This project follows a structure-based bioinformatics workflow to build and evaluate a profile Hidden Markov Model (HMM) for detecting BPTI/Kunitz-type protease inhibitor domains.
+
+The workflow was designed to address the main project aim: building a profile HMM for the Kunitz-type protease inhibitor domain starting from available structural information and using the model to annotate Kunitz domains in Swiss-Prot proteins.
 
 ---
 
@@ -37,15 +39,6 @@ This document summarizes the full analysis pipeline used to construct a profile 
 
 ### 5. Biological Interpretation
 - [Final Interpretation](#20-final-interpretation)
-
----
-# Workflow
-
-> **Project goal:** Build and evaluate a structure-guided profile Hidden Markov Model (HMM) for detecting BPTI/Kunitz-type protease inhibitor domains.
-
-This project follows a structure-based bioinformatics workflow to build and evaluate a profile Hidden Markov Model (HMM) for detecting BPTI/Kunitz-type protease inhibitor domains.
-
-The workflow was designed to address the main project aim: building a profile HMM for the Kunitz-type protease inhibitor domain starting from available structural information and using the model to annotate Kunitz domains in Swiss-Prot proteins.
 
 
 ---
