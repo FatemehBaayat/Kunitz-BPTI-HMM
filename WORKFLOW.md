@@ -6,6 +6,40 @@ The workflow was designed to address the main project aim: building a profile HM
 
 ---
 
+## Workflow Overview
+
+### 1. Structure-Based Dataset Preparation
+- PDB Structure Retrieval
+- Chain-Level Sequence Extraction
+- Length-Based Filtering
+- Sequence Clustering
+- Representative Structure Selection
+- PDB Chain Extraction
+
+### 2. Structural Alignment and HMM Construction
+- Multiple Structural Alignment
+- Structural Quality Control
+- Outlier Removal and Refined Alignment
+- Profile HMM Construction
+
+### 3. Swiss-Prot Benchmarking
+- Swiss-Prot Benchmark Dataset
+- Removal of Training-Like Positives
+- HMM Search
+- No-Hit Handling
+
+### 4. Model Evaluation
+- Threshold Optimization
+- Performance Evaluation
+- Hard-Negative Benchmark
+- Cross-Validation
+- False Positive and False Negative Analysis
+
+### 5. Biological Interpretation
+- Final Interpretation
+
+---
+
 ## 1. PDB Structure Retrieval
 
 The workflow starts from experimentally resolved protein structures. Kunitz/BPTI-related structures were retrieved from the Protein Data Bank (PDB).
