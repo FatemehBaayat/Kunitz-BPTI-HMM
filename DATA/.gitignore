@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Large biological data
+*.gz
+*.zip
+*.tar
+*.fasta.gz
+*.faa.gz
+*.pdb
+*.cif
+
+# Temporary folders
+tmp/
+temp/
+mmseqs_tmp/
+blastdb/
+hmmer_tmp/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
