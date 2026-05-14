@@ -338,7 +338,7 @@ This analysis helps interpret model errors rather than only reporting global per
 The complete workflow is provided in the notebook:
 
 ```text
-NOTEBOOK/Kunitz_BPTI_HMM_workflow.ipynb
+NOTEBOOK/Kunitz_BPTI_HMM.ipynb
 ```
 
 Required tools include:
