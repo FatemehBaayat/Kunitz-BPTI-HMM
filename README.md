@@ -145,7 +145,7 @@ The query was built using the following criteria:
 - **Experimental resolution:** `≤ 3.5 Å`  
   This keeps structures with acceptable structural quality for downstream structural alignment.
 
-- **Polymer entity sequence length:** `45–80 amino acids`  
+- **Polymer entity sequence length:** `45 ≤ length ≤ 80 amino acids`
   This range was selected because Kunitz/BPTI domains are short domains, typically around 50–60 residues.
 
 After running the query, the results were exported using **Tabular Reports → Custom Report**.
