@@ -86,7 +86,7 @@ Kunitz-BPTI-HMM/
 │       └── positive_training_like_removed.fasta
 │
 ├── NOTEBOOK/
-│   └── Kunitz_BPTI_HMM_workflow.ipynb
+│   └── Kunitz_BPTI_HMM.ipynb
 │
 ├── RESULTS/
 │   ├── alignments/
