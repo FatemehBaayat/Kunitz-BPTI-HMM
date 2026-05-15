@@ -1,0 +1,70 @@
+# =========================
+# Python / Jupyter
+# =========================
+__pycache__/
+*.py[cod]
+*$py.class
+.ipynb_checkpoints/
+*.log
+
+# Virtual environments
+.env
+.envrc
+.venv/
+env/
+venv/
+ENV/
+
+# Python build/cache
+build/
+dist/
+*.egg-info/
+.eggs/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.cache/
+
+# =========================
+# System / editor files
+# =========================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+tempCodeRunnerFile.py
+
+# =========================
+# Project temporary folders
+# =========================
+tmp/
+tmp80/
+tmp90/
+tmp95/
+mTM_result/
+mTM_result_no_outliers/
+pairwise_tmalign_qc/
+
+# =========================
+# Large or regenerated archives
+# =========================
+*.zip
+*.tar.gz
+*.tar
+
+# =========================
+# Optional large raw files
+# =========================
+# Keep these ignored if they are too large for GitHub.
+# They can be regenerated from UniProt/Swiss-Prot using the notebook.
+DATA/raw/negative_kunitz.fasta
+negative_kunitz.fasta
+
+# =========================
+# Runtime/downstream generated folders
+# =========================
+# Uncomment these only if you do not want to track extracted/downloaded structures.
+# RESULTS/structures/pdbs/
+# RESULTS/structures/chains/
+# pdbs/
+# chains/
