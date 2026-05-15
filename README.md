@@ -112,7 +112,6 @@ Kunitz-BPTI-HMM/
 │   │   ├── threshold_optimization_results_hard.tsv
 │   │   ├── threshold_optimization_results_random_full.tsv
 │   │   ├── benchmark_threshold_comparison.tsv
-│   │   ├── final_metrics_benchmark_specific_thresholds.tsv
 │   │   ├── final_metrics_random_full_threshold.tsv
 │   │   ├── final_confusion_matrix_random_full_threshold.tsv
 │   │   ├── final_false_positives_random_full_threshold.tsv
