@@ -61,6 +61,10 @@ Refined structure-based sequence alignment
       ↓
 Profile HMM construction with HMMER
       ↓
+Swiss-Prot benchmark preparation
+      ↓
+BLASTP removal of training-like positive sequences
+      ↓
 Swiss-Prot benchmark search with hmmsearch
       ↓
 Threshold optimization
